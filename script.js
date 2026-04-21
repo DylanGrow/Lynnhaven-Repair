@@ -241,7 +241,8 @@ function initOrder() {
   }
 
   form.addEventListener('submit', e => {
-    e.preventDefault();
+    // Let the form POST naturally to Google Forms (target="google_forms_iframe")
+    // Then show success screen after a short delay
     const btn = form.querySelector('button[type="submit"]');
     btn.textContent = 'Sending…';
     btn.disabled = true;

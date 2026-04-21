@@ -56,31 +56,38 @@
       <!-- Form -->
       <div class="order-form-wrap">
         <h2>Your Information</h2>
-        <form id="order-form" novalidate>
+
+        <!-- Hidden iframe prevents redirect to Google's confirmation page -->
+        <iframe name="google_forms_iframe" style="display:none" aria-hidden="true"></iframe>
+
+        <form
+          id="order-form"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSc1HFhI_8KOWCkjdXAxDsu8oq_LMbykFetAcHPgKF-oEEWMjw/formResponse"
+          method="POST"
+          target="google_forms_iframe">
+
           <div class="form-row">
             <div class="form-group">
               <label for="name">Full Name <span aria-hidden="true" style="color:#cc3333">*</span></label>
-              <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name">
+              <input type="text" id="name" name="entry.311192204" placeholder="Jane Smith" required autocomplete="name">
             </div>
             <div class="form-group">
               <label for="phone">Phone Number <span aria-hidden="true" style="color:#cc3333">*</span></label>
-              <input type="tel" id="phone" name="phone" placeholder="(757) 555-0100" required autocomplete="tel">
+              <input type="tel" id="phone" name="entry.745256044" placeholder="(757) 555-0100" required autocomplete="tel">
             </div>
           </div>
 
           <div class="form-group">
             <label for="email">Email Address <span aria-hidden="true" style="color:#cc3333">*</span></label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+            <input type="email" id="email" name="entry.1361506606" placeholder="you@example.com" required autocomplete="email">
           </div>
 
-          <div class="form-group">
-            <label for="cart-items-hidden" style="display:none">Selected Items</label>
-            <input type="hidden" id="cart-items-hidden" name="cart_items">
-          </div>
+          <!-- Cart contents auto-filled by script.js -->
+          <input type="hidden" id="cart-items-hidden" name="entry.1205098462">
 
           <div class="form-group">
             <label for="notes">Additional Notes or Questions</label>
-            <textarea id="notes" name="notes" placeholder="Any questions about the equipment? Preferred pickup time? Let us know…"></textarea>
+            <textarea id="notes" name="entry.566575560" placeholder="Any questions about the equipment? Preferred pickup time? Let us know…"></textarea>
           </div>
 
           <div style="background:var(--green-pale);border-radius:var(--radius-sm);padding:14px 16px;font-size:.88rem;color:var(--warm-gray);margin-bottom:24px;border:1px solid rgba(74,138,42,.2)">
