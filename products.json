@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Honda HRX217 Lawnmower",
     "price": 275,
-    "image": "images/honda-hrx217.jpg",
+    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/46c80f2cc6e80e55c59e451953e4442c3d287ddd.jpg",
     "description": "22in self-propelled mower. Full tune-up, new blades, fresh oil, and clean cut performance.",
     "condition": "Like New",
     "category": "Mowers"
@@ -12,7 +12,7 @@
     "id": 2,
     "name": "Toro Recycler 22",
     "price": 185,
-    "image": "images/toro-recycler-22.jpg",
+    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/46c80f2cc6e80e55c59e451953e4442c3d287ddd.jpg",
     "description": "Reliable push mower with a serviced engine, sharpened blade, and ready-to-use deck.",
     "condition": "Very Good",
     "category": "Mowers"
@@ -21,7 +21,7 @@
     "id": 3,
     "name": "Craftsman 21in Push Mower",
     "price": 95,
-    "image": "images/craftsman-push-mower.jpg",
+    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/46c80f2cc6e80e55c59e451953e4442c3d287ddd.jpg",
     "description": "Lightweight gas mower with cleaned carburetor, new spark plug, and fresh oil change.",
     "condition": "Good",
     "category": "Mowers"
@@ -30,7 +30,7 @@
     "id": 4,
     "name": "Stihl FS 56 Trimmer",
     "price": 145,
-    "image": "images/stihl-fs56-trimmer.jpg",
+    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/990e202ec9e54ba3bc39dc629590c8954add03e8.jpg",
     "description": "Straight shaft weed eater with new line, tuned engine, and easy start performance.",
     "condition": "Excellent",
     "category": "Trimmers"
@@ -39,7 +39,7 @@
     "id": 5,
     "name": "Echo SRM-225 Trimmer",
     "price": 135,
-    "image": "images/echo-srm225-trimmer.jpg",
+    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/990e202ec9e54ba3bc39dc629590c8954add03e8.jpg",
     "description": "Refurbished trimmer with clean fuel system, adjusted idle, and strong cutting power.",
     "condition": "Very Good",
     "category": "Trimmers"
@@ -48,7 +48,7 @@
     "id": 6,
     "name": "Husqvarna 128LD Trimmer",
     "price": 120,
-    "image": "images/husqvarna-128ld.jpg",
+    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/990e202ec9e54ba3bc39dc629590c8954add03e8.jpg",
     "description": "Easy-start trimmer with serviced carburetor and fresh cutting line for yard cleanup.",
     "condition": "Good",
     "category": "Trimmers"
@@ -57,7 +57,7 @@
     "id": 7,
     "name": "Toro Leaf Blower",
     "price": 95,
-    "image": "images/toro-leaf-blower.jpg",
+    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/8775e312428fca0af5f7ca25ac1bb986fa279ed6.jpg",
     "description": "Compact blower with strong airflow, cleaned filter, and fully tested engine.",
     "condition": "Very Good",
     "category": "Blowers"
@@ -66,7 +66,7 @@
     "id": 8,
     "name": "Echo Backpack Blower",
     "price": 165,
-    "image": "images/echo-backpack-blower.jpg",
+    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/8775e312428fca0af5f7ca25ac1bb986fa279ed6.jpg",
     "description": "Powerful backpack blower with serviced fuel system and comfortable harness.",
     "condition": "Excellent",
     "category": "Blowers"
@@ -75,7 +75,7 @@
     "id": 9,
     "name": "Ryobi Electric Blower",
     "price": 75,
-    "image": "images/ryobi-electric-blower.jpg",
+    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/8775e312428fca0af5f7ca25ac1bb986fa279ed6.jpg",
     "description": "Lightweight electric blower for quick cleanup around driveways, decks, and sidewalks.",
     "condition": "Good",
     "category": "Blowers"
@@ -84,7 +84,7 @@
     "id": 10,
     "name": "Craftsman Pressure Washer",
     "price": 185,
-    "image": "images/craftsman-pressure-washer.jpg",
+    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/46c80f2cc6e80e55c59e451953e4442c3d287ddd.jpg",
     "description": "2000 PSI washer with serviced pump, new hose, and strong cleaning performance.",
     "condition": "Very Good",
     "category": "Washers"
