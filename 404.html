@@ -3,14 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Not Found - Lynnhaven Small Engine Repair</title>
+  <title>Page Not Found | Lynnhaven Small Engine Repair</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main style="padding: 2rem; text-align: center;">
-    <h1>404 - Page Not Found</h1>
-    <p>The page you were looking for does not exist.</p>
-    <a href="index.html">Go back home</a>
-  </main>
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-icon">⚙️</div>
+        <div class="brand-text">
+          <span class="brand-name">Lynnhaven Engine Repair</span>
+          <span class="brand-sub">Lynnhaven, Virginia</span>
+        </div>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html" class="cart-link">🛒 Cart<span class="cart-count" id="cart-count"></span></a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main style="padding:100px 0;text-align:center">
+  <div class="container">
+    <div style="font-size:5rem;margin-bottom:20px">🔧</div>
+    <h1 style="font-size:3rem;margin-bottom:12px">404 — Page Not Found</h1>
+    <p style="font-size:1.1rem;color:var(--warm-gray);margin-bottom:32px">Looks like that page got lost in the shop. Let's get you back on track.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="index.html" class="btn btn-primary">Back to Home</a>
+      <a href="shop.html" class="btn btn-ghost">Browse the Shop</a>
+    </div>
+  </div>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

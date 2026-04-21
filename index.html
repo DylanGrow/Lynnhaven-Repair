@@ -3,118 +3,269 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lynnhaven Small Engine Repair | Small Engine Service in Lynnhaven, VA</title>
-  <meta name="description" content="Lynnhaven Small Engine Repair offers refurbished lawnmowers and small engine service in Lynnhaven, Virginia. Browse inventory, request repairs, and contact us today.">
-  <meta name="keywords" content="Lynnhaven small engine repair, lawnmower repair Lynnhaven VA, refurbished lawnmowers, small engine service">
+  <title>Lynnhaven Small Engine Repair | Virginia Beach, VA</title>
+  <meta name="description" content="Lynnhaven Small Engine Repair — trusted local repair shop in Lynnhaven, Virginia. We fix lawnmowers, trimmers, blowers, and sell quality refurbished outdoor power equipment.">
+  <meta name="keywords" content="small engine repair Lynnhaven, lawnmower repair Virginia Beach, used lawnmowers for sale, outdoor power equipment repair VA">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://lynnhavenenginerepair.com/">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="index.html">
-        <span class="brand-mark">⚙</span>
-        <span class="brand-text">Lynnhaven Small Engine Repair</span>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="brand" aria-label="Lynnhaven Small Engine Repair Home">
+        <div class="brand-icon" aria-hidden="true">⚙️</div>
+        <div class="brand-text">
+          <span class="brand-name">Lynnhaven Engine Repair</span>
+          <span class="brand-sub">Lynnhaven, Virginia</span>
+        </div>
       </a>
-      <nav aria-label="Main navigation" class="site-nav">
-        <a href="index.html" aria-current="page">Home</a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
-        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-        <a href="order.html">Order</a>
+        <a href="order.html">Request Order</a>
+        <a href="#contact">Contact</a>
+        <a href="cart.html" class="cart-link" aria-label="View cart">
+          🛒 Cart
+          <span class="cart-count" id="cart-count" aria-live="polite"></span>
+        </a>
       </nav>
+
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Lynnhaven, Virginia</p>
-          <h1>Small engine repair that feels local, trusted, and easy to use.</h1>
-          <p class="hero-text">
-            Refurbished lawnmowers, weed eaters, blowers, and more — ready for pickup in Lynnhaven.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="shop.html">Browse Inventory</a>
-            <a class="btn btn-secondary" href="order.html">Request Service</a>
-          </div>
+<!-- ── Hero ── -->
+<section class="hero" aria-label="Welcome">
+  <div class="hero-gear" aria-hidden="true">⚙</div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span>📍</span> Serving Lynnhaven & Virginia Beach
+      </div>
+      <h1>We Fix It.<br>We Sell It.<br><em>You Mow It.</em></h1>
+      <p class="hero-lead">
+        Honest small engine repair and quality refurbished outdoor equipment —
+        from a shop that treats every customer like a neighbor.
+      </p>
+      <div class="hero-ctas">
+        <a href="shop.html" class="btn btn-gold">Browse Equipment →</a>
+        <a href="#contact" class="btn btn-outline">📞 Call Us Today</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">20+</span>
+          <span class="stat-label">Years Experience</span>
         </div>
-
-        <div class="hero-card">
-          <h2>Quick Info</h2>
-          <ul>
-            <li>Local pickup available</li>
-            <li>Refurbished equipment for sale</li>
-            <li>No payments online</li>
-            <li>Fast request form</li>
-          </ul>
+        <div class="stat">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Engines Repaired</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">4.9★</span>
+          <span class="stat-label">Customer Rating</span>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">What we do</p>
-          <h2>Services built for homeowners and yard work.</h2>
-        </div>
+<!-- ── Services ── -->
+<section class="section section-alt" aria-labelledby="services-heading">
+  <div class="container">
+    <span class="section-label">What We Do</span>
+    <h2 class="section-title" id="services-heading">Full-Service Engine Repair<br>& Quality Equipment Sales</h2>
+    <p class="section-sub">Whether your mower won't start or you need a dependable machine at a fair price, we've got you covered.</p>
 
-        <div class="cards">
-          <article class="card">
-            <h3>Repairs</h3>
-            <p>Need a mower fixed? We service small engines with care and attention to detail.</p>
-          </article>
-          <article class="card">
-            <h3>Refurbished Sales</h3>
-            <p>Browse cleaned, tuned, and tested equipment that is ready for work.</p>
-          </article>
-          <article class="card">
-            <h3>Local Support</h3>
-            <p>Easy pickup, clear contact options, and a simple order request process.</p>
-          </article>
-        </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">🔧</div>
+        <h3>Small Engine Repair</h3>
+        <p>Won't start? Running rough? We diagnose and fix lawnmowers, trimmers, blowers, pressure washers, and more. Most repairs done same week.</p>
       </div>
-    </section>
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">🌿</div>
+        <h3>Refurbished Equipment</h3>
+        <p>Every machine we sell is fully serviced, tested, and ready to work. Get brand-name quality — Honda, Stihl, Echo, Toro — at a fraction of retail.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">🏡</div>
+        <h3>Local, Trusted Service</h3>
+        <p>We're your neighbors. No upselling, no runaround — just honest advice, fair pricing, and work you can count on season after season.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" aria-hidden="true">⚡</div>
+        <h3>Tune-Ups & Seasonal Prep</h3>
+        <p>Sharpen blades, replace filters, flush old fuel. Get your equipment ready for spring or properly stored before winter arrives.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="section alt">
-      <div class="container split">
-        <div>
-          <p class="eyebrow">Why choose us</p>
-          <h2>Simple, honest, and built around the theme of real repair work.</h2>
-        </div>
-        <ul class="checklist">
-          <li>Clean product presentation</li>
-          <li>Mobile-friendly layout</li>
-          <li>Accessible navigation and forms</li>
-          <li>SEO-ready structure</li>
+<!-- ── Why Choose Us ── -->
+<section class="section" aria-labelledby="why-heading">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-text">
+        <span class="section-label">Why Lynnhaven</span>
+        <h2 class="section-title" id="why-heading">The Shop That<br>Gets It Done Right</h2>
+        <p class="section-sub">We've been turning wrenches in the Lynnhaven community for over two decades. Here's what makes us different.</p>
+
+        <ul class="why-list" role="list">
+          <li class="why-item">
+            <div class="why-check" aria-hidden="true">✓</div>
+            <div>
+              <h4>Transparent Pricing</h4>
+              <p>You'll always know the cost before we start. No surprise charges, ever.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-check" aria-hidden="true">✓</div>
+            <div>
+              <h4>Quality Parts</h4>
+              <p>We use OEM and top-tier aftermarket parts — nothing cheap that'll fail in a season.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-check" aria-hidden="true">✓</div>
+            <div>
+              <h4>Fast Turnaround</h4>
+              <p>Most repairs are completed in 3–5 business days. We know your lawn can't wait.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-check" aria-hidden="true">✓</div>
+            <div>
+              <h4>30-Day Warranty on Equipment</h4>
+              <p>Every refurbished machine sold comes with a 30-day parts &amp; labor guarantee.</p>
+            </div>
+          </li>
         </ul>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Featured products</p>
-          <h2>Popular equipment from the shop.</h2>
+      <div class="why-image-block" role="img" aria-label="Workshop photo placeholder">
+        <div class="why-image-placeholder">
+          <span class="big-icon" aria-hidden="true">🛠️</span>
+          <p>Your neighborhood<br>engine experts</p>
         </div>
-        <div id="featured-products" class="cards"></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h2>Lynnhaven Small Engine Repair</h2>
-        <p>Lynnhaven, Virginia</p>
-      </div>
-      <div>
-        <p><a href="tel:+17575551234">(757) 555-1234</a></p>
-        <p><a href="mailto:lynnhavenrepair@gmail.com">lynnhavenrepair@gmail.com</a></p>
+        <div class="badge-float">
+          <div class="num">30</div>
+          <div class="label">Day Warranty</div>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<!-- ── Featured Products ── -->
+<section class="section section-alt" aria-labelledby="featured-heading">
+  <div class="container">
+    <span class="section-label">From the Shop Floor</span>
+    <h2 class="section-title" id="featured-heading">Featured Equipment</h2>
+    <p class="section-sub">Freshly serviced machines ready to work. All items sold as-is with our 30-day guarantee.</p>
+
+    <div class="products-grid" id="featured-products" aria-live="polite">
+      <p>Loading products…</p>
+    </div>
+
+    <div class="section-cta">
+      <a href="shop.html" class="btn btn-primary">View All Inventory →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section class="contact-strip" id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:28px">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title" id="contact-heading" style="font-size:1.9rem">We'd Love to Hear From You</h2>
+    </div>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="icon" aria-hidden="true">📞</div>
+        <div>
+          <strong>Phone</strong>
+          <span><a href="tel:+17571234567">(757) 123-4567</a></span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="icon" aria-hidden="true">📍</div>
+        <div>
+          <strong>Location</strong>
+          <span>Lynnhaven, Virginia Beach, VA 23452</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="icon" aria-hidden="true">🕐</div>
+        <div>
+          <strong>Hours</strong>
+          <span>Mon–Fri 8am–5pm · Sat 8am–12pm</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="icon" aria-hidden="true">✉️</div>
+        <div>
+          <strong>Email</strong>
+          <span><a href="mailto:info@lynnhavenenginerepair.com">info@lynnhavenenginerepair.com</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom:14px">
+          <div class="brand-icon" aria-hidden="true">⚙️</div>
+          <div class="brand-text">
+            <span class="brand-name">Lynnhaven Engine Repair</span>
+            <span class="brand-sub">Lynnhaven, Virginia</span>
+          </div>
+        </div>
+        <p>Your trusted neighborhood small engine repair shop. Serving Lynnhaven and all of Virginia Beach since 2004.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop Equipment</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="order.html">Request Order</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Lawnmower Repair</a></li>
+          <li><a href="#">Trimmer Repair</a></li>
+          <li><a href="#">Blower Repair</a></li>
+          <li><a href="#">Pressure Washer Repair</a></li>
+          <li><a href="#">Tune-Ups</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 Lynnhaven Small Engine Repair. All rights reserved.</p>
+      <p>Made with ❤️ in <a href="#contact">Lynnhaven, VA</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -3,88 +3,186 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Request | Lynnhaven Small Engine Repair</title>
-  <meta name="description" content="Submit an order request to Lynnhaven Small Engine Repair in Lynnhaven, VA.">
-  <meta name="keywords" content="order request, Lynnhaven small engine repair, contact form, refurbished lawnmowers">
+  <title>Request an Order | Lynnhaven Small Engine Repair</title>
+  <meta name="description" content="Submit a pickup order request for refurbished equipment at Lynnhaven Small Engine Repair. No online payment needed — we'll reach out to confirm.">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="index.html">
-        <span class="brand-mark">⚙</span>
-        <span class="brand-text">Lynnhaven Small Engine Repair</span>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="brand" aria-label="Lynnhaven Small Engine Repair Home">
+        <div class="brand-icon" aria-hidden="true">⚙️</div>
+        <div class="brand-text">
+          <span class="brand-name">Lynnhaven Engine Repair</span>
+          <span class="brand-sub">Lynnhaven, Virginia</span>
+        </div>
       </a>
-      <nav aria-label="Main navigation" class="site-nav">
+
+      <nav class="main-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
-        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-        <a href="order.html" aria-current="page">Order</a>
+        <a href="order.html">Request Order</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="cart.html" class="cart-link" aria-label="View cart">
+          🛒 Cart
+          <span class="cart-count" id="cart-count" aria-live="polite"></span>
+        </a>
       </nav>
+
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <p class="eyebrow">Order request</p>
-        <h1>Tell us what you need and we’ll follow up.</h1>
-        <p>
-          Use this form to request an item from your cart or ask about a repair. We’ll contact you as soon as possible.
-        </p>
-      </div>
-    </section>
+<!-- ── Page Hero ── -->
+<section class="page-hero" aria-label="Order request">
+  <div class="container">
+    <h1>Request a Pickup Order</h1>
+    <p>Fill out the form below and we'll contact you within 1 business day to confirm availability and arrange pickup.</p>
+  </div>
+</section>
 
-    <section class="section">
-      <div class="container form-wrap">
-        <form id="order-form">
-          <div class="form-grid">
-            <label>
-              Full name
-              <input type="text" name="name" required>
-            </label>
+<!-- ── Order Form ── -->
+<main>
+  <div class="container">
+    <div class="order-grid">
 
-            <label>
-              Email
-              <input type="email" name="email" required>
-            </label>
-
-            <label>
-              Phone
-              <input type="tel" name="phone">
-            </label>
-
-            <label class="full">
-              Order details
-              <textarea id="order-items" name="items" rows="6" readonly></textarea>
-            </label>
-
-            <label class="full">
-              Notes
-              <textarea name="notes" rows="4" placeholder="Tell us about pickup, repairs, or questions..."></textarea>
-            </label>
+      <!-- Form -->
+      <div class="order-form-wrap">
+        <h2>Your Information</h2>
+        <form id="order-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name <span aria-hidden="true" style="color:#cc3333">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number <span aria-hidden="true" style="color:#cc3333">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="(757) 555-0100" required autocomplete="tel">
+            </div>
           </div>
 
-          <button type="submit" class="btn btn-primary">Send Request</button>
+          <div class="form-group">
+            <label for="email">Email Address <span aria-hidden="true" style="color:#cc3333">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label for="cart-items-hidden" style="display:none">Selected Items</label>
+            <input type="hidden" id="cart-items-hidden" name="cart_items">
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Additional Notes or Questions</label>
+            <textarea id="notes" name="notes" placeholder="Any questions about the equipment? Preferred pickup time? Let us know…"></textarea>
+          </div>
+
+          <div style="background:var(--green-pale);border-radius:var(--radius-sm);padding:14px 16px;font-size:.88rem;color:var(--warm-gray);margin-bottom:24px;border:1px solid rgba(74,138,42,.2)">
+            <strong style="color:var(--green-dark)">No payment required now.</strong> We'll confirm availability and pricing when we reach out. Payment is collected at pickup — cash, check, or card accepted.
+          </div>
+
+          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;font-size:1rem">
+            Send My Order Request →
+          </button>
         </form>
       </div>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h2>Lynnhaven Small Engine Repair</h2>
-        <p>Lynnhaven, Virginia</p>
+      <!-- Sidebar -->
+      <aside class="order-sidebar" aria-label="Order details">
+
+        <div class="order-items-box">
+          <h3>Items in Your Cart</h3>
+          <div id="order-items" aria-live="polite">
+            <p style="color:var(--warm-gray);font-size:.9rem">Loading…</p>
+          </div>
+          <div class="order-total-line" id="order-total-wrap" style="display:none">
+            <span>Estimated Total</span>
+            <span id="order-total" style="color:var(--green-mid)"></span>
+          </div>
+          <a href="cart.html" style="display:inline-block;margin-top:14px;font-size:.88rem;color:var(--green-mid);font-weight:600">← Edit Cart</a>
+        </div>
+
+        <div class="info-box">
+          <h4>📍 Pickup Location</h4>
+          <p style="margin-bottom:10px">Lynnhaven, Virginia Beach, VA 23452</p>
+          <p><strong>Hours:</strong><br>
+          Mon–Fri: 8:00 AM – 5:00 PM<br>
+          Saturday: 8:00 AM – 12:00 PM<br>
+          Sunday: Closed</p>
+        </div>
+
+        <div class="info-box">
+          <h4>❓ How It Works</h4>
+          <ul>
+            <li>Submit this form with your info and items</li>
+            <li>We'll call or email within 1 business day</li>
+            <li>Confirm the items are still available</li>
+            <li>Schedule your pickup time</li>
+            <li>Pay at the shop — cash, check, or card</li>
+          </ul>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</main>
+
+<!-- ── Footer ── -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom:14px">
+          <div class="brand-icon" aria-hidden="true">⚙️</div>
+          <div class="brand-text">
+            <span class="brand-name">Lynnhaven Engine Repair</span>
+            <span class="brand-sub">Lynnhaven, Virginia</span>
+          </div>
+        </div>
+        <p>Your trusted neighborhood small engine repair shop. Serving Lynnhaven and all of Virginia Beach since 2004.</p>
       </div>
-      <div>
-        <p><a href="tel:+17575551234">(757) 555-1234</a></p>
-        <p><a href="mailto:lynnhavenrepair@gmail.com">lynnhavenrepair@gmail.com</a></p>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop Equipment</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="order.html">Request Order</a></li>
+          <li><a href="index.html#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+17571234567">(757) 123-4567</a></li>
+          <li><a href="mailto:info@lynnhavenenginerepair.com">Email Us</a></li>
+          <li><span style="color:rgba(255,255,255,.5)">Mon–Fri 8am–5pm</span></li>
+          <li><span style="color:rgba(255,255,255,.5)">Sat 8am–12pm</span></li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p>© 2024 Lynnhaven Small Engine Repair. All rights reserved.</p>
+      <p>Made with ❤️ in <a href="index.html#contact">Lynnhaven, VA</a></p>
+    </div>
+  </div>
+</footer>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
+<script>
+  // Show total line when cart has items
+  document.addEventListener('DOMContentLoaded', () => {
+    const cart = JSON.parse(localStorage.getItem('lynnhaven_cart') || '[]');
+    if (cart.length > 0) {
+      document.getElementById('order-total-wrap').style.display = 'flex';
+    }
+  });
+</script>
 </body>
 </html>

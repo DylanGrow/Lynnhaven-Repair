@@ -4,63 +4,100 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cart | Lynnhaven Small Engine Repair</title>
-  <meta name="description" content="Review your cart at Lynnhaven Small Engine Repair in Lynnhaven, VA.">
-  <meta name="keywords" content="cart, lawnmower cart, small engine repair, Lynnhaven VA">
+  <meta name="description" content="Review your selected equipment before submitting a pickup request at Lynnhaven Small Engine Repair in Virginia Beach, VA.">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="index.html">
-        <span class="brand-mark">⚙</span>
-        <span class="brand-text">Lynnhaven Small Engine Repair</span>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="brand" aria-label="Lynnhaven Small Engine Repair Home">
+        <div class="brand-icon" aria-hidden="true">⚙️</div>
+        <div class="brand-text">
+          <span class="brand-name">Lynnhaven Engine Repair</span>
+          <span class="brand-sub">Lynnhaven, Virginia</span>
+        </div>
       </a>
-      <nav aria-label="Main navigation" class="site-nav">
+
+      <nav class="main-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
-        <a href="cart.html" aria-current="page">Cart (<span id="cart-count">0</span>)</a>
-        <a href="order.html">Order</a>
+        <a href="order.html">Request Order</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="cart.html" class="cart-link" aria-label="View cart">
+          🛒 Cart
+          <span class="cart-count" id="cart-count" aria-live="polite"></span>
+        </a>
       </nav>
+
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <p class="eyebrow">Your cart</p>
-        <h1>Review the equipment you’ve selected.</h1>
-        <p>
-          Make sure your items look right, then continue to the request form when you are ready.
-        </p>
-      </div>
-    </section>
+<!-- ── Page Hero ── -->
+<section class="page-hero" aria-label="Cart">
+  <div class="container">
+    <h1>Your Cart</h1>
+    <p>Review your selected items and submit a pickup request when ready.</p>
+  </div>
+</section>
 
-    <section class="section">
-      <div class="container">
-        <ul id="cart-list" style="list-style:none; padding:0; margin:0;"></ul>
+<!-- ── Cart Content ── -->
+<main class="section">
+  <div class="container">
+    <div id="cart-wrap" aria-live="polite">
+      <p>Loading cart…</p>
+    </div>
+  </div>
+</main>
 
-        <div class="card" style="margin-top:18px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
-          <p style="margin:0; font-size:1.1rem;"><strong>Total:</strong> $<span id="total-price">0.00</span></p>
-          <a id="checkout-btn" class="btn btn-primary" href="order.html" aria-disabled="true">Continue to Order</a>
+<!-- ── Footer ── -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="margin-bottom:14px">
+          <div class="brand-icon" aria-hidden="true">⚙️</div>
+          <div class="brand-text">
+            <span class="brand-name">Lynnhaven Engine Repair</span>
+            <span class="brand-sub">Lynnhaven, Virginia</span>
+          </div>
         </div>
+        <p>Your trusted neighborhood small engine repair shop. Serving Lynnhaven and all of Virginia Beach since 2004.</p>
       </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h2>Lynnhaven Small Engine Repair</h2>
-        <p>Lynnhaven, Virginia</p>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop Equipment</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="order.html">Request Order</a></li>
+          <li><a href="index.html#contact">Contact Us</a></li>
+        </ul>
       </div>
-      <div>
-        <p><a href="tel:+17575551234">(757) 555-1234</a></p>
-        <p><a href="mailto:lynnhavenrepair@gmail.com">lynnhavenrepair@gmail.com</a></p>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+17571234567">(757) 123-4567</a></li>
+          <li><a href="mailto:info@lynnhavenenginerepair.com">Email Us</a></li>
+          <li><span style="color:rgba(255,255,255,.5)">Mon–Fri 8am–5pm</span></li>
+          <li><span style="color:rgba(255,255,255,.5)">Sat 8am–12pm</span></li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="footer-bottom">
+      <p>© 2024 Lynnhaven Small Engine Repair. All rights reserved.</p>
+      <p>Made with ❤️ in <a href="index.html#contact">Lynnhaven, VA</a></p>
+    </div>
+  </div>
+</footer>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

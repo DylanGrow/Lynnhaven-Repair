@@ -1,92 +1,102 @@
 [
   {
-    "id": 1,
-    "name": "Honda HRX217 Lawnmower",
-    "price": 275,
-    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/46c80f2cc6e80e55c59e451953e4442c3d287ddd.jpg",
-    "description": "22in self-propelled mower. Full tune-up, new blades, fresh oil, and clean cut performance.",
-    "condition": "Like New",
-    "category": "Mowers"
-  },
-  {
-    "id": 2,
-    "name": "Toro Recycler 22",
-    "price": 185,
-    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/46c80f2cc6e80e55c59e451953e4442c3d287ddd.jpg",
-    "description": "Reliable push mower with a serviced engine, sharpened blade, and ready-to-use deck.",
-    "condition": "Very Good",
-    "category": "Mowers"
-  },
-  {
-    "id": 3,
-    "name": "Craftsman 21in Push Mower",
-    "price": 95,
-    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/46c80f2cc6e80e55c59e451953e4442c3d287ddd.jpg",
-    "description": "Lightweight gas mower with cleaned carburetor, new spark plug, and fresh oil change.",
-    "condition": "Good",
-    "category": "Mowers"
-  },
-  {
-    "id": 4,
-    "name": "Stihl FS 56 Trimmer",
-    "price": 145,
-    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/990e202ec9e54ba3bc39dc629590c8954add03e8.jpg",
-    "description": "Straight shaft weed eater with new line, tuned engine, and easy start performance.",
+    "id": "p001",
+    "name": "Honda HRX217 Self-Propelled Mower",
+    "category": "Mowers",
     "condition": "Excellent",
-    "category": "Trimmers"
+    "price": 385,
+    "description": "Variable speed self-propel, Honda GCV200 engine. Runs great, blades sharpened.",
+    "image": "https://placehold.co/400x300/2d5016/ffffff?text=Honda+HRX217",
+    "featured": true
   },
   {
-    "id": 5,
-    "name": "Echo SRM-225 Trimmer",
-    "price": 135,
-    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/990e202ec9e54ba3bc39dc629590c8954add03e8.jpg",
-    "description": "Refurbished trimmer with clean fuel system, adjusted idle, and strong cutting power.",
-    "condition": "Very Good",
-    "category": "Trimmers"
+    "id": "p002",
+    "name": "Toro Recycler 22 Push Mower",
+    "category": "Mowers",
+    "condition": "Good",
+    "price": 195,
+    "description": "Recycler mulching technology, Briggs & Stratton 140cc engine. Serviced and ready.",
+    "image": "https://placehold.co/400x300/2d5016/ffffff?text=Toro+Recycler+22",
+    "featured": true
   },
   {
-    "id": 6,
-    "name": "Husqvarna 128LD Trimmer",
+    "id": "p003",
+    "name": "Craftsman 21\" Push Mower",
+    "category": "Mowers",
+    "condition": "Fair",
     "price": 120,
-    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/990e202ec9e54ba3bc39dc629590c8954add03e8.jpg",
-    "description": "Easy-start trimmer with serviced carburetor and fresh cutting line for yard cleanup.",
-    "condition": "Good",
-    "category": "Trimmers"
+    "description": "Reliable Briggs engine, side discharge and mulch. Deck cleaned, oil changed.",
+    "image": "https://placehold.co/400x300/2d5016/ffffff?text=Craftsman+Push+Mower",
+    "featured": false
   },
   {
-    "id": 7,
-    "name": "Toro Leaf Blower",
-    "price": 95,
-    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/8775e312428fca0af5f7ca25ac1bb986fa279ed6.jpg",
-    "description": "Compact blower with strong airflow, cleaned filter, and fully tested engine.",
-    "condition": "Very Good",
-    "category": "Blowers"
-  },
-  {
-    "id": 8,
-    "name": "Echo Backpack Blower",
-    "price": 165,
-    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/8775e312428fca0af5f7ca25ac1bb986fa279ed6.jpg",
-    "description": "Powerful backpack blower with serviced fuel system and comfortable harness.",
+    "id": "p004",
+    "name": "Stihl FS 56 RC String Trimmer",
+    "category": "Trimmers",
     "condition": "Excellent",
-    "category": "Blowers"
+    "price": 220,
+    "description": "Easy2Start system, loop handle. Carb cleaned, new fuel lines. Starts 1st pull.",
+    "image": "https://placehold.co/400x300/4a7c24/ffffff?text=Stihl+FS+56+RC",
+    "featured": true
   },
   {
-    "id": 9,
-    "name": "Ryobi Electric Blower",
-    "price": 75,
-    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/8775e312428fca0af5f7ca25ac1bb986fa279ed6.jpg",
-    "description": "Lightweight electric blower for quick cleanup around driveways, decks, and sidewalks.",
+    "id": "p005",
+    "name": "Echo SRM-225 String Trimmer",
+    "category": "Trimmers",
     "condition": "Good",
-    "category": "Blowers"
+    "price": 165,
+    "description": "Pro-grade 21.2cc engine, Speed-Feed head. Runs strong, shaft cleaned.",
+    "image": "https://placehold.co/400x300/4a7c24/ffffff?text=Echo+SRM-225",
+    "featured": false
   },
   {
-    "id": 10,
-    "name": "Craftsman Pressure Washer",
-    "price": 185,
-    "image": "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/46c80f2cc6e80e55c59e451953e4442c3d287ddd.jpg",
-    "description": "2000 PSI washer with serviced pump, new hose, and strong cleaning performance.",
-    "condition": "Very Good",
-    "category": "Washers"
+    "id": "p006",
+    "name": "Husqvarna 128LD Detachable Trimmer",
+    "category": "Trimmers",
+    "condition": "Good",
+    "price": 175,
+    "description": "Detachable shaft accepts multiple attachments. Powerful 28cc engine, low vibration.",
+    "image": "https://placehold.co/400x300/4a7c24/ffffff?text=Husqvarna+128LD",
+    "featured": false
+  },
+  {
+    "id": "p007",
+    "name": "Toro 51621 Electric Leaf Blower",
+    "category": "Blowers",
+    "condition": "Excellent",
+    "price": 75,
+    "description": "110 MPH airspeed, vacuum/mulch mode. All electric, no gas needed. Like new.",
+    "image": "https://placehold.co/400x300/1a3a0a/ffffff?text=Toro+Leaf+Blower",
+    "featured": false
+  },
+  {
+    "id": "p008",
+    "name": "Echo PB-580T Backpack Blower",
+    "category": "Blowers",
+    "condition": "Good",
+    "price": 285,
+    "description": "58.2cc engine, 215 MPH air velocity. Commercial-grade power for large properties.",
+    "image": "https://placehold.co/400x300/1a3a0a/ffffff?text=Echo+PB-580T",
+    "featured": true
+  },
+  {
+    "id": "p009",
+    "name": "Ryobi 40V Cordless Blower",
+    "category": "Blowers",
+    "condition": "Excellent",
+    "price": 110,
+    "description": "Brushless motor, 120 MPH / 550 CFM. Battery and charger included. Quiet operation.",
+    "image": "https://placehold.co/400x300/1a3a0a/ffffff?text=Ryobi+40V+Blower",
+    "featured": false
+  },
+  {
+    "id": "p010",
+    "name": "Craftsman 2800 PSI Pressure Washer",
+    "category": "Washers",
+    "condition": "Good",
+    "price": 245,
+    "description": "2.3 GPM, 196cc engine. Includes 4 nozzle tips and 25ft hose. Seals replaced.",
+    "image": "https://placehold.co/400x300/5a4a1a/ffffff?text=Craftsman+2800+PSI",
+    "featured": false
   }
 ]
