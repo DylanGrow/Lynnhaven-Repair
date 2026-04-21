@@ -1,3 +1,90 @@
-shop.html title: "Shop Restored Small Engines - Lynnhaven Small Engine Repair"
-cart.html title: "Shopping Cart - Lynnhaven Repair"
-order.html title: "Order Request - Lynnhaven Small Engine Repair"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Request | Lynnhaven Small Engine Repair</title>
+  <meta name="description" content="Submit an order request to Lynnhaven Small Engine Repair in Lynnhaven, VA.">
+  <meta name="keywords" content="order request, Lynnhaven small engine repair, contact form, refurbished lawnmowers">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">⚙</span>
+        <span class="brand-text">Lynnhaven Small Engine Repair</span>
+      </a>
+      <nav aria-label="Main navigation" class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        <a href="order.html" aria-current="page">Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Order request</p>
+        <h1>Tell us what you need and we’ll follow up.</h1>
+        <p>
+          Use this form to request an item from your cart or ask about a repair. We’ll contact you as soon as possible.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container form-wrap">
+        <form id="order-form">
+          <div class="form-grid">
+            <label>
+              Full name
+              <input type="text" name="name" required>
+            </label>
+
+            <label>
+              Email
+              <input type="email" name="email" required>
+            </label>
+
+            <label>
+              Phone
+              <input type="tel" name="phone">
+            </label>
+
+            <label class="full">
+              Order details
+              <textarea id="order-items" name="items" rows="6" readonly></textarea>
+            </label>
+
+            <label class="full">
+              Notes
+              <textarea name="notes" rows="4" placeholder="Tell us about pickup, repairs, or questions..."></textarea>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Request</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>Lynnhaven Small Engine Repair</h2>
+        <p>Lynnhaven, Virginia</p>
+      </div>
+      <div>
+        <p><a href="tel:+17575551234">(757) 555-1234</a></p>
+        <p><a href="mailto:lynnhavenrepair@gmail.com">lynnhavenrepair@gmail.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
