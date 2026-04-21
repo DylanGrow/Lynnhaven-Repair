@@ -218,10 +218,13 @@ function initOrder() {
   const itemsBox = document.getElementById('order-items');
   const totalEl = document.getElementById('order-total');
   const cartInput = document.getElementById('cart-items-hidden');
+  const nameInput = document.getElementById('name');
+  
   if (!form) return;
 
   const cart = getCart();
 
+  // 1. Populate visual summary
   if (itemsBox) {
     if (cart.length === 0) {
       itemsBox.innerHTML = '<p style="color:var(--warm-gray);font-size:.9rem">No items in cart.</p>';
@@ -236,26 +239,33 @@ function initOrder() {
     }
   }
 
+  // 2. Map cart data to hidden Google Form field
   if (cartInput) {
     cartInput.value = cart.map(i => `${i.name} ($${i.price})`).join('; ');
   }
 
-  form.addEventListener('submit', e => {
-    // Let the form POST naturally to Google Forms (target="google_forms_iframe")
-    // Then show success screen after a short delay
+  // 3. Handle submission via hidden iframe (No fetch/CORS issues)
+  form.addEventListener('submit', () => {
     const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending…';
+    const customerName = nameInput ? nameInput.value : 'neighbor';
+    
+    btn.textContent = 'Sending...';
     btn.disabled = true;
+
+    // Wait 1.5s to allow the POST to the iframe to complete
     setTimeout(() => {
-      form.closest('.order-form-wrap').innerHTML = `
-        <div class="success-box">
-          <div class="success-icon">🎉</div>
-          <h2>Request Received!</h2>
-          <p>Thanks for reaching out. We'll contact you within 1 business day to confirm your order and arrange pickup.</p>
-          <a href="index.html" class="btn btn-primary">Back to Home</a>
-        </div>`;
-      saveCart([]);
-    }, 1200);
+      const wrap = document.querySelector('.order-form-wrap');
+      if (wrap) {
+        wrap.innerHTML = `
+          <div class="success-box" style="text-align:center; padding: 40px 20px;">
+            <div style="font-size: 3.5rem; margin-bottom: 20px;">🎉</div>
+            <h2 style="color:var(--green-dark); margin-bottom:10px;">Request Received!</h2>
+            <p>Thanks for reaching out, ${customerName}. We'll contact you within 1 business day to confirm your order.</p>
+            <a href="index.html" class="btn btn-gold" style="display:inline-block; margin-top:25px;">Back to Home</a>
+          </div>`;
+      }
+      saveCart([]); // Clear cart
+    }, 1500);
   });
 }
 
