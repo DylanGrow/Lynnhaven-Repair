@@ -1,3 +1,66 @@
-shop.html title: "Shop Restored Small Engines - Lynnhaven Small Engine Repair"
-cart.html title: "Shopping Cart - Lynnhaven Repair"
-order.html title: "Order Request - Lynnhaven Small Engine Repair"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart | Lynnhaven Small Engine Repair</title>
+  <meta name="description" content="Review your cart at Lynnhaven Small Engine Repair in Lynnhaven, VA.">
+  <meta name="keywords" content="cart, lawnmower cart, small engine repair, Lynnhaven VA">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">⚙</span>
+        <span class="brand-text">Lynnhaven Small Engine Repair</span>
+      </a>
+      <nav aria-label="Main navigation" class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="cart.html" aria-current="page">Cart (<span id="cart-count">0</span>)</a>
+        <a href="order.html">Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Your cart</p>
+        <h1>Review the equipment you’ve selected.</h1>
+        <p>
+          Make sure your items look right, then continue to the request form when you are ready.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <ul id="cart-list" style="list-style:none; padding:0; margin:0;"></ul>
+
+        <div class="card" style="margin-top:18px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+          <p style="margin:0; font-size:1.1rem;"><strong>Total:</strong> $<span id="total-price">0.00</span></p>
+          <a id="checkout-btn" class="btn btn-primary" href="order.html" aria-disabled="true">Continue to Order</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h2>Lynnhaven Small Engine Repair</h2>
+        <p>Lynnhaven, Virginia</p>
+      </div>
+      <div>
+        <p><a href="tel:+17575551234">(757) 555-1234</a></p>
+        <p><a href="mailto:lynnhavenrepair@gmail.com">lynnhavenrepair@gmail.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
