@@ -372,3 +372,26 @@ textarea {
   outline: 3px solid #7fbf90;
   outline-offset: 3px;
 }
+function cardHtml(product) {
+  const labels = {
+    'Like New': 'Top pick',
+    'Excellent': 'Cleaned',
+    'Very Good': 'Ready now',
+    'Good': 'Shop ready'
+  };
+
+  return `
+    <article class="product-card">
+      ${productImageHtml(product)}
+      <div>
+        <p class="eyebrow">${labels[product.condition] || product.condition || 'Available'}</p>
+        <h3>${product.name || 'Product'}</h3>
+        <p>${product.description || ''}</p>
+        <p class="price">$${Number(product.price || 0).toFixed(2)}</p>
+      </div>
+      <button type="button" aria-label="Add ${product.name} to cart" onclick="addToCart(${product.id})">
+        Add to cart
+      </button>
+    </article>
+  `;
+}
