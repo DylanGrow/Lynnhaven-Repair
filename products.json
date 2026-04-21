@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Honda HRX217 Lawnmower",
+    "price": 275,
+    "image": "honda-hrx.jpg",
+    "description": "22in self-propelled. Full service. Lynnhaven pickup.",
+    "condition": "Like New"
+  },
+  {
+    "id": 2,
+    "name": "Stihl FS 56C Weed Eater",
+    "price": 145,
+    "image": "stihl-fs56.jpg",
+    "description": "Commercial trimmer. Carb cleaned. Straight shaft.",
+    "condition": "Excellent"
+  },
+  {
+    "id": 3,
+    "name": "Echo PB-2520 Blower",
+    "price": 165,
+    "image": "echo-pb2520.jpg",
+    "description": "230 MPH backpack blower. Full tune-up.",
+    "condition": "Very Good"
+  },
+  {
+    "id": 4,
+    "name": "Briggs 21in Push Mower",
+    "price": 95,
+    "image": "briggs-mower.jpg",
+    "description": "Lightweight. New blades/spark plug. Perfect for small yards.",
+    "condition": "Good"
+  }
+]
