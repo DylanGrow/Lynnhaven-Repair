@@ -4,267 +4,360 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lynnhaven Small Engine Repair | Virginia Beach, VA</title>
-  <meta name="description" content="Lynnhaven Small Engine Repair — trusted local repair shop in Lynnhaven, Virginia. We fix lawnmowers, trimmers, blowers, and sell quality refurbished outdoor power equipment.">
-  <meta name="keywords" content="small engine repair Lynnhaven, lawnmower repair Virginia Beach, used lawnmowers for sale, outdoor power equipment repair VA">
+  <meta name="description" content="Trusted small engine repair and quality refurbished outdoor power equipment in Lynnhaven, Virginia Beach. Lawnmowers, trimmers, blowers — serviced and ready.">
+  <meta name="theme-color" content="#1a2e0a">
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="style.css">
-  <link rel="canonical" href="https://lynnhavenenginerepair.com/">
-</head>
-<body>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'DM Sans', sans-serif; }
 
-<!-- ── Header ── -->
-<header class="site-header">
-  <div class="container">
-    <div class="header-inner">
-      <a href="index.html" class="brand" aria-label="Lynnhaven Small Engine Repair Home">
-        <div class="brand-icon" aria-hidden="true">⚙️</div>
-        <div class="brand-text">
-          <span class="brand-name">Lynnhaven Engine Repair</span>
-          <span class="brand-sub">Lynnhaven, Virginia</span>
+    .hero-bg {
+      background: linear-gradient(135deg, #1a2e0a 0%, #2d4a18 40%, #3d6521 70%, #2a3d12 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero-bg::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        radial-gradient(ellipse at 20% 80%, rgba(139,195,74,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(205,168,60,0.10) 0%, transparent 45%);
+    }
+    /* Grain overlay */
+    .hero-bg::after {
+      content: ''; position: absolute; inset:-50%; width:200%; height:200%; opacity:0.35;
+      pointer-events:none; animation: grain 3s steps(6) infinite;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+    @keyframes grain { 0%,100%{transform:translate(0,0)} 10%{transform:translate(-2%,-3%)} 30%{transform:translate(3%,-1%)} 50%{transform:translate(-1%,2%)} 70%{transform:translate(2%,3%)} 90%{transform:translate(-3%,1%)} }
+
+    .gear-spin  { animation: gspin 28s linear infinite; transform-origin:center; }
+    .gear-spinr { animation: gspin 20s linear infinite reverse; transform-origin:center; }
+    @keyframes gspin { to { transform:rotate(360deg); } }
+
+    .hero-t1 { animation: hup .65s ease both; }
+    .hero-t2 { animation: hup .65s .12s ease both; }
+    .hero-t3 { animation: hup .65s .24s ease both; }
+    .hero-t4 { animation: hup .65s .36s ease both; }
+    .hero-t5 { animation: hup .65s .48s ease both; }
+    @keyframes hup { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+    .wood-card { background:linear-gradient(135deg,#fefce8,#fef3c7); }
+
+    .service-card { position:relative; overflow:hidden; }
+    .service-card::after { content:''; position:absolute; bottom:0;left:0;right:0; height:3px;
+      background:linear-gradient(90deg,#3d6b21,#c8a02a); transform:scaleX(0); transition:transform .3s ease; }
+    .service-card:hover::after { transform:scaleX(1); }
+
+    /* FIX #2: sticky cart uses class toggle */
+    #mobile-cart-btn { transition: transform .35s cubic-bezier(.34,1.56,.64,1), opacity .3s ease; }
+    #mobile-cart-btn.hidden { transform: translateY(80px); opacity:0; pointer-events:none; }
+
+    ::-webkit-scrollbar{width:5px} ::-webkit-scrollbar-track{background:#f5f0e8} ::-webkit-scrollbar-thumb{background:#4a7c1a;border-radius:99px}
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+<!-- ── HEADER ── -->
+<header class="sticky top-0 z-40 bg-stone-900 shadow-lg">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 bg-amber-400 rounded-xl flex items-center justify-center text-lg shadow-sm group-hover:bg-amber-300 transition-colors">⚙️</div>
+        <div class="leading-tight">
+          <div class="text-white font-bold text-sm" style="font-family:Lora,serif">Lynnhaven Engine Repair</div>
+          <div class="text-stone-400 text-xs">Lynnhaven, Virginia Beach</div>
         </div>
       </a>
 
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="order.html">Request Order</a>
-        <a href="#contact">Contact</a>
-        <a href="cart.html" class="cart-link" aria-label="View cart">
+      <nav class="hidden md:flex items-center gap-1" aria-label="Main navigation">
+        <a href="index.html"  class="nav-link text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded-lg hover:bg-white/10 transition-all">Home</a>
+        <a href="shop.html"   class="nav-link text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded-lg hover:bg-white/10 transition-all">Shop</a>
+        <a href="order.html"  class="nav-link text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded-lg hover:bg-white/10 transition-all">Order</a>
+        <!-- FIX #39: tel: link in nav -->
+        <a href="tel:+17571234567" class="nav-link text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded-lg hover:bg-white/10 transition-all">Contact</a>
+        <a href="cart.html" class="relative ml-2 flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-stone-900 text-sm font-bold px-4 py-2 rounded-xl transition-colors">
           🛒 Cart
-          <span class="cart-count" id="cart-count" aria-live="polite"></span>
+          <span class="cart-count hidden absolute -top-1.5 -right-1.5 min-w-[20px] h-5 bg-green-700 text-white text-xs font-black rounded-full flex items-center justify-center px-1 transition-transform"></span>
         </a>
       </nav>
 
-      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="flex md:hidden items-center gap-3">
+        <a href="cart.html" class="relative text-white text-xl p-1">
+          🛒
+          <span class="cart-count hidden absolute -top-0.5 -right-0.5 min-w-[16px] h-4 bg-amber-400 text-stone-900 text-xs font-black rounded-full flex items-center justify-center px-0.5"></span>
+        </a>
+        <button id="nav-burger" class="text-white p-1 rounded-lg hover:bg-white/10 transition-colors" aria-label="Toggle menu" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- FIX #19: links close menu, #20: Escape closes -->
+    <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-stone-700/60 mt-1 pt-3 space-y-1">
+      <a href="index.html"  class="nav-link block text-stone-300 hover:text-white px-3 py-2.5 rounded-lg hover:bg-white/10 text-sm font-medium transition-all">Home</a>
+      <a href="shop.html"   class="nav-link block text-stone-300 hover:text-white px-3 py-2.5 rounded-lg hover:bg-white/10 text-sm font-medium transition-all">Shop Equipment</a>
+      <a href="order.html"  class="nav-link block text-stone-300 hover:text-white px-3 py-2.5 rounded-lg hover:bg-white/10 text-sm font-medium transition-all">Request Order</a>
+      <a href="tel:+17571234567" class="nav-link block text-stone-300 hover:text-white px-3 py-2.5 rounded-lg hover:bg-white/10 text-sm font-medium transition-all">📞 Call Us</a>
+      <a href="cart.html" class="block bg-amber-400 text-stone-900 font-bold text-center py-2.5 rounded-xl mt-2 text-sm">🛒 View Cart</a>
     </div>
   </div>
 </header>
 
-<!-- ── Hero ── -->
-<section class="hero" aria-label="Welcome">
-  <div class="hero-gear" aria-hidden="true">⚙</div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span>📍</span> Serving Lynnhaven & Virginia Beach
+<!-- ── HERO ── -->
+<section class="hero-bg min-h-[88vh] md:min-h-[82vh] flex items-center relative" aria-label="Welcome">
+  <div class="absolute right-6 top-14 opacity-[0.04] text-white select-none pointer-events-none hidden lg:block">
+    <div class="gear-spin text-[220px] leading-none">⚙</div>
+  </div>
+  <div class="absolute right-52 bottom-16 opacity-[0.03] text-white select-none pointer-events-none hidden lg:block">
+    <div class="gear-spinr text-[130px] leading-none">⚙</div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 py-20 relative z-10 w-full">
+    <div class="max-w-2xl">
+      <div class="hero-t1 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-amber-300 text-xs font-bold tracking-widest uppercase px-4 py-2 rounded-full mb-8">
+        📍 Serving Lynnhaven &amp; Virginia Beach Since 2004
       </div>
-      <h1>We Fix It.<br>We Sell It.<br><em>You Mow It.</em></h1>
-      <p class="hero-lead">
-        Honest small engine repair and quality refurbished outdoor equipment —
-        from a shop that treats every customer like a neighbor.
+      <h1 class="hero-t2 text-white mb-6" style="font-family:Lora,serif;font-size:clamp(2.4rem,6vw,4rem);line-height:1.15;font-weight:700;">
+        We Fix It.<br>We Sell It.<br><span class="text-amber-300">You Mow It.</span>
+      </h1>
+      <p class="hero-t3 text-stone-300 text-lg leading-relaxed mb-10 max-w-xl">
+        Honest small engine repair and quality refurbished outdoor equipment — from a shop that treats every customer like a neighbor.
       </p>
-      <div class="hero-ctas">
-        <a href="shop.html" class="btn btn-gold">Browse Equipment →</a>
-        <a href="#contact" class="btn btn-outline">📞 Call Us Today</a>
+      <div class="hero-t4 flex flex-wrap gap-4 mb-16">
+        <a href="shop.html" class="bg-amber-400 hover:bg-amber-300 active:scale-95 text-stone-900 font-bold px-8 py-4 rounded-2xl transition-all duration-200 shadow-lg text-base">Browse Equipment →</a>
+        <!-- FIX #39: actual tel: link -->
+        <a href="tel:+17571234567" class="border-2 border-white/40 hover:border-white text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-200 hover:bg-white/10 text-base">📞 (757) 123-4567</a>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">20+</span>
-          <span class="stat-label">Years Experience</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">500+</span>
-          <span class="stat-label">Engines Repaired</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">4.9★</span>
-          <span class="stat-label">Customer Rating</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Services ── -->
-<section class="section section-alt" aria-labelledby="services-heading">
-  <div class="container">
-    <span class="section-label">What We Do</span>
-    <h2 class="section-title" id="services-heading">Full-Service Engine Repair<br>& Quality Equipment Sales</h2>
-    <p class="section-sub">Whether your mower won't start or you need a dependable machine at a fair price, we've got you covered.</p>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon" aria-hidden="true">🔧</div>
-        <h3>Small Engine Repair</h3>
-        <p>Won't start? Running rough? We diagnose and fix lawnmowers, trimmers, blowers, pressure washers, and more. Most repairs done same week.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" aria-hidden="true">🌿</div>
-        <h3>Refurbished Equipment</h3>
-        <p>Every machine we sell is fully serviced, tested, and ready to work. Get brand-name quality — Honda, Stihl, Echo, Toro — at a fraction of retail.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" aria-hidden="true">🏡</div>
-        <h3>Local, Trusted Service</h3>
-        <p>We're your neighbors. No upselling, no runaround — just honest advice, fair pricing, and work you can count on season after season.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon" aria-hidden="true">⚡</div>
-        <h3>Tune-Ups & Seasonal Prep</h3>
-        <p>Sharpen blades, replace filters, flush old fuel. Get your equipment ready for spring or properly stored before winter arrives.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Why Choose Us ── -->
-<section class="section" aria-labelledby="why-heading">
-  <div class="container">
-    <div class="why-grid">
-      <div class="why-text">
-        <span class="section-label">Why Lynnhaven</span>
-        <h2 class="section-title" id="why-heading">The Shop That<br>Gets It Done Right</h2>
-        <p class="section-sub">We've been turning wrenches in the Lynnhaven community for over two decades. Here's what makes us different.</p>
-
-        <ul class="why-list" role="list">
-          <li class="why-item">
-            <div class="why-check" aria-hidden="true">✓</div>
-            <div>
-              <h4>Transparent Pricing</h4>
-              <p>You'll always know the cost before we start. No surprise charges, ever.</p>
-            </div>
-          </li>
-          <li class="why-item">
-            <div class="why-check" aria-hidden="true">✓</div>
-            <div>
-              <h4>Quality Parts</h4>
-              <p>We use OEM and top-tier aftermarket parts — nothing cheap that'll fail in a season.</p>
-            </div>
-          </li>
-          <li class="why-item">
-            <div class="why-check" aria-hidden="true">✓</div>
-            <div>
-              <h4>Fast Turnaround</h4>
-              <p>Most repairs are completed in 3–5 business days. We know your lawn can't wait.</p>
-            </div>
-          </li>
-          <li class="why-item">
-            <div class="why-check" aria-hidden="true">✓</div>
-            <div>
-              <h4>30-Day Warranty on Equipment</h4>
-              <p>Every refurbished machine sold comes with a 30-day parts &amp; labor guarantee.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="why-image-block" role="img" aria-label="Workshop photo placeholder">
-        <div class="why-image-placeholder">
-          <span class="big-icon" aria-hidden="true">🛠️</span>
-          <p>Your neighborhood<br>engine experts</p>
-        </div>
-        <div class="badge-float">
-          <div class="num">30</div>
-          <div class="label">Day Warranty</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Featured Products ── -->
-<section class="section section-alt" aria-labelledby="featured-heading">
-  <div class="container">
-    <span class="section-label">From the Shop Floor</span>
-    <h2 class="section-title" id="featured-heading">Featured Equipment</h2>
-    <p class="section-sub">Freshly serviced machines ready to work. All items sold as-is with our 30-day guarantee.</p>
-
-    <div class="products-grid" id="featured-products" aria-live="polite">
-      <p>Loading products…</p>
-    </div>
-
-    <div class="section-cta">
-      <a href="shop.html" class="btn btn-primary">View All Inventory →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── Contact ── -->
-<section class="contact-strip" id="contact" aria-labelledby="contact-heading">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:28px">
-      <span class="section-label">Get In Touch</span>
-      <h2 class="section-title" id="contact-heading" style="font-size:1.9rem">We'd Love to Hear From You</h2>
-    </div>
-    <div class="contact-items">
-      <div class="contact-item">
-        <div class="icon" aria-hidden="true">📞</div>
+      <div class="hero-t5 flex flex-wrap gap-10">
         <div>
-          <strong>Phone</strong>
-          <span><a href="tel:+17571234567">(757) 123-4567</a></span>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="icon" aria-hidden="true">📍</div>
-        <div>
-          <strong>Location</strong>
-          <span>Lynnhaven, Virginia Beach, VA 23452</span>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="icon" aria-hidden="true">🕐</div>
-        <div>
-          <strong>Hours</strong>
-          <span>Mon–Fri 8am–5pm · Sat 8am–12pm</span>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="icon" aria-hidden="true">✉️</div>
-        <div>
-          <strong>Email</strong>
-          <span><a href="mailto:info@lynnhavenenginerepair.com">info@lynnhavenenginerepair.com</a></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Footer ── -->
-<footer class="site-footer" aria-label="Site footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="brand" style="margin-bottom:14px">
-          <div class="brand-icon" aria-hidden="true">⚙️</div>
-          <div class="brand-text">
-            <span class="brand-name">Lynnhaven Engine Repair</span>
-            <span class="brand-sub">Lynnhaven, Virginia</span>
+          <div class="text-white text-3xl font-black" style="font-family:Lora,serif">
+            <!-- FIX #44: counter with correct prefix/suffix -->
+            <span data-count="20" data-suffix="+">20+</span>
           </div>
+          <div class="text-stone-400 text-xs uppercase tracking-wider mt-1">Years Experience</div>
         </div>
-        <p>Your trusted neighborhood small engine repair shop. Serving Lynnhaven and all of Virginia Beach since 2004.</p>
+        <div>
+          <div class="text-white text-3xl font-black" style="font-family:Lora,serif">
+            <span data-count="500" data-suffix="+">500+</span>
+          </div>
+          <div class="text-stone-400 text-xs uppercase tracking-wider mt-1">Engines Repaired</div>
+        </div>
+        <div>
+          <div class="text-amber-300 text-3xl font-black" style="font-family:Lora,serif">4.9★</div>
+          <div class="text-stone-400 text-xs uppercase tracking-wider mt-1">Customer Rating</div>
+        </div>
       </div>
+    </div>
+  </div>
+  <div class="absolute bottom-0 left-0 right-0 pointer-events-none">
+    <svg viewBox="0 0 1440 72" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,36 C360,72 1080,0 1440,36 L1440,72 L0,72 Z" fill="#fafaf9"/>
+    </svg>
+  </div>
+</section>
 
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop Equipment</a></li>
-          <li><a href="cart.html">Cart</a></li>
-          <li><a href="order.html">Request Order</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+<!-- ── SERVICES ── -->
+<section class="py-20 bg-stone-50" aria-labelledby="services-h">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14 fade-up">
+      <div class="text-amber-600 text-xs font-bold tracking-widest uppercase mb-3">What We Do</div>
+      <h2 id="services-h" class="text-3xl md:text-4xl font-bold text-stone-800 mb-4" style="font-family:Lora,serif">Full-Service Repair &amp;<br>Quality Equipment Sales</h2>
+      <p class="text-stone-500 max-w-md mx-auto">Whether your mower won't start or you need a dependable machine at a fair price, we've got you covered.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="service-card bg-white rounded-2xl p-6 shadow-sm border border-stone-100 hover:shadow-lg transition-all duration-300 fade-up">
+        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-2xl mb-4">🔧</div>
+        <h3 class="font-bold text-stone-800 mb-2" style="font-family:Lora,serif">Small Engine Repair</h3>
+        <p class="text-stone-500 text-sm leading-relaxed">Won't start? Running rough? We fix lawnmowers, trimmers, blowers, and more. Most repairs done same week.</p>
+      </div>
+      <div class="service-card bg-white rounded-2xl p-6 shadow-sm border border-stone-100 hover:shadow-lg transition-all duration-300 fade-up">
+        <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-2xl mb-4">🌿</div>
+        <h3 class="font-bold text-stone-800 mb-2" style="font-family:Lora,serif">Refurbished Equipment</h3>
+        <p class="text-stone-500 text-sm leading-relaxed">Every machine is fully serviced and tested. Honda, Stihl, Echo, Toro quality at a fraction of retail.</p>
+      </div>
+      <div class="service-card bg-white rounded-2xl p-6 shadow-sm border border-stone-100 hover:shadow-lg transition-all duration-300 fade-up">
+        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-2xl mb-4">🏡</div>
+        <h3 class="font-bold text-stone-800 mb-2" style="font-family:Lora,serif">Local, Trusted Service</h3>
+        <p class="text-stone-500 text-sm leading-relaxed">We're your neighbors. Honest advice, fair pricing, and work you can count on season after season.</p>
+      </div>
+      <div class="service-card bg-white rounded-2xl p-6 shadow-sm border border-stone-100 hover:shadow-lg transition-all duration-300 fade-up">
+        <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-2xl mb-4">⚡</div>
+        <h3 class="font-bold text-stone-800 mb-2" style="font-family:Lora,serif">Tune-Ups &amp; Prep</h3>
+        <p class="text-stone-500 text-sm leading-relaxed">Sharpen blades, replace filters, flush old fuel. Ready for spring or stored safely before winter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY CHOOSE US ── -->
+<section class="py-20 bg-amber-50 border-y border-amber-100" aria-labelledby="why-h">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="fade-up">
+        <div class="text-amber-600 text-xs font-bold tracking-widest uppercase mb-3">Why Lynnhaven</div>
+        <h2 id="why-h" class="text-3xl md:text-4xl font-bold text-stone-800 mb-6" style="font-family:Lora,serif">The Shop That<br>Gets It Done Right</h2>
+        <p class="text-stone-500 mb-8 leading-relaxed">We've been turning wrenches in the Lynnhaven community for over two decades. Here's what makes us different.</p>
+        <ul class="space-y-5" role="list">
+          <li class="flex gap-4">
+            <div class="w-7 h-7 bg-green-700 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0 mt-0.5" aria-hidden="true">✓</div>
+            <div><div class="font-bold text-stone-800 mb-1">Transparent Pricing</div><div class="text-stone-500 text-sm">You'll know the cost before we start. No surprise charges, ever.</div></div>
+          </li>
+          <li class="flex gap-4">
+            <div class="w-7 h-7 bg-green-700 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0 mt-0.5" aria-hidden="true">✓</div>
+            <div><div class="font-bold text-stone-800 mb-1">Quality Parts Only</div><div class="text-stone-500 text-sm">OEM and top-tier aftermarket parts — nothing cheap that'll fail next season.</div></div>
+          </li>
+          <li class="flex gap-4">
+            <div class="w-7 h-7 bg-green-700 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0 mt-0.5" aria-hidden="true">✓</div>
+            <div><div class="font-bold text-stone-800 mb-1">Fast Turnaround</div><div class="text-stone-500 text-sm">Most repairs completed in 3–5 business days. Your lawn can't wait.</div></div>
+          </li>
+          <li class="flex gap-4">
+            <div class="w-7 h-7 bg-amber-500 rounded-full flex items-center justify-center text-white text-xs flex-shrink-0 mt-0.5" aria-hidden="true">★</div>
+            <div><div class="font-bold text-stone-800 mb-1">30-Day Warranty</div><div class="text-stone-500 text-sm">Every refurbished machine comes with a 30-day parts &amp; labor guarantee.</div></div>
+          </li>
         </ul>
       </div>
+      <div class="fade-up grid grid-cols-2 gap-4">
+        <div class="wood-card rounded-2xl p-6 text-center shadow-sm border border-amber-200">
+          <div class="text-4xl mb-2" aria-hidden="true">🔧</div>
+          <div class="text-3xl font-black text-green-800" style="font-family:Lora,serif">20+</div>
+          <div class="text-stone-500 text-xs mt-1 uppercase tracking-wider">Years in Business</div>
+        </div>
+        <div class="bg-green-800 rounded-2xl p-6 text-center shadow-sm">
+          <div class="text-4xl mb-2" aria-hidden="true">⭐</div>
+          <div class="text-3xl font-black text-amber-300" style="font-family:Lora,serif">4.9</div>
+          <div class="text-green-200 text-xs mt-1 uppercase tracking-wider">Avg. Rating</div>
+        </div>
+        <div class="bg-stone-800 rounded-2xl p-6 text-center shadow-sm">
+          <div class="text-4xl mb-2" aria-hidden="true">🌿</div>
+          <div class="text-3xl font-black text-white" style="font-family:Lora,serif">500+</div>
+          <div class="text-stone-400 text-xs mt-1 uppercase tracking-wider">Engines Fixed</div>
+        </div>
+        <div class="wood-card rounded-2xl p-6 text-center shadow-sm border border-amber-200">
+          <div class="text-4xl mb-2" aria-hidden="true">✅</div>
+          <div class="text-3xl font-black text-green-800" style="font-family:Lora,serif">30</div>
+          <div class="text-stone-500 text-xs mt-1 uppercase tracking-wider">Day Warranty</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#">Lawnmower Repair</a></li>
-          <li><a href="#">Trimmer Repair</a></li>
-          <li><a href="#">Blower Repair</a></li>
-          <li><a href="#">Pressure Washer Repair</a></li>
-          <li><a href="#">Tune-Ups</a></li>
+<!-- ── FEATURED PRODUCTS ── -->
+<section class="py-20 bg-stone-50" aria-labelledby="featured-h">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 fade-up">
+      <div>
+        <div class="text-amber-600 text-xs font-bold tracking-widest uppercase mb-2">From The Shop Floor</div>
+        <h2 id="featured-h" class="text-3xl md:text-4xl font-bold text-stone-800" style="font-family:Lora,serif">Featured Equipment</h2>
+        <p class="text-stone-500 mt-2">Freshly serviced. Backed by our 30-day guarantee.</p>
+      </div>
+      <a href="shop.html" class="text-green-800 font-bold text-sm hover:text-green-600 transition-colors flex items-center gap-1 flex-shrink-0 group">
+        View All Inventory <span class="group-hover:translate-x-1 transition-transform">→</span>
+      </a>
+    </div>
+    <!-- FIX #35: skeleton loaders render here, then replaced by JS -->
+    <div id="featured-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" aria-live="polite">
+      <div class="bg-stone-200 rounded-2xl h-72 animate-pulse"></div>
+      <div class="bg-stone-200 rounded-2xl h-72 animate-pulse"></div>
+      <div class="bg-stone-200 rounded-2xl h-72 animate-pulse hidden sm:block"></div>
+      <div class="bg-stone-200 rounded-2xl h-72 animate-pulse hidden lg:block"></div>
+    </div>
+    <div class="text-center mt-12 fade-up">
+      <a href="shop.html" class="inline-flex items-center gap-2 bg-green-800 hover:bg-green-700 text-white font-bold px-8 py-4 rounded-2xl transition-colors shadow-lg">
+        Browse All 10 Items in Stock →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact" class="py-20 bg-stone-800" aria-labelledby="contact-h">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-12 fade-up">
+      <div class="text-amber-400 text-xs font-bold tracking-widest uppercase mb-3">Get In Touch</div>
+      <h2 id="contact-h" class="text-3xl md:text-4xl font-bold text-white" style="font-family:Lora,serif">We'd Love to Hear From You</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 fade-up">
+      <!-- FIX #39: all tel: links working -->
+      <a href="tel:+17571234567" class="flex items-center gap-4 bg-stone-700 hover:bg-stone-600 rounded-2xl p-5 transition-colors group">
+        <div class="w-12 h-12 bg-amber-400 rounded-xl flex items-center justify-center text-xl flex-shrink-0" aria-hidden="true">📞</div>
+        <div>
+          <div class="text-stone-400 text-xs uppercase tracking-wider mb-1">Phone</div>
+          <div class="text-white font-bold group-hover:text-amber-300 transition-colors">(757) 123-4567</div>
+        </div>
+      </a>
+      <div class="flex items-center gap-4 bg-stone-700 rounded-2xl p-5">
+        <div class="w-12 h-12 bg-green-700 rounded-xl flex items-center justify-center text-xl flex-shrink-0" aria-hidden="true">📍</div>
+        <div>
+          <div class="text-stone-400 text-xs uppercase tracking-wider mb-1">Location</div>
+          <div class="text-white font-bold text-sm">Lynnhaven,<br>Virginia Beach VA 23452</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 bg-stone-700 rounded-2xl p-5">
+        <div class="w-12 h-12 bg-amber-400 rounded-xl flex items-center justify-center text-xl flex-shrink-0" aria-hidden="true">🕐</div>
+        <div>
+          <div class="text-stone-400 text-xs uppercase tracking-wider mb-1">Hours</div>
+          <div class="text-white font-bold text-sm">Mon–Fri 8am–5pm<br><span class="text-stone-300 font-normal">Sat 8am–12pm</span></div>
+        </div>
+      </div>
+      <!-- FIX #38: rel="noopener" on external-style links -->
+      <a href="mailto:info@lynnhavenenginerepair.com" class="flex items-center gap-4 bg-stone-700 hover:bg-stone-600 rounded-2xl p-5 transition-colors group">
+        <div class="w-12 h-12 bg-green-700 rounded-xl flex items-center justify-center text-xl flex-shrink-0" aria-hidden="true">✉️</div>
+        <div>
+          <div class="text-stone-400 text-xs uppercase tracking-wider mb-1">Email</div>
+          <div class="text-white font-bold text-sm group-hover:text-amber-300 transition-colors">Send a Message</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 bg-amber-400 rounded-lg flex items-center justify-center text-base" aria-hidden="true">⚙️</div>
+          <span class="text-white font-bold text-sm" style="font-family:Lora,serif">Lynnhaven Engine Repair</span>
+        </div>
+        <p class="text-sm leading-relaxed">Your trusted neighborhood small engine shop. Serving Virginia Beach since 2004.</p>
+      </div>
+      <div>
+        <div class="text-white text-xs font-bold uppercase tracking-wider mb-4">Quick Links</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="index.html"  class="hover:text-amber-400 transition-colors">Home</a></li>
+          <li><a href="shop.html"   class="hover:text-amber-400 transition-colors">Shop Equipment</a></li>
+          <li><a href="cart.html"   class="hover:text-amber-400 transition-colors">Cart</a></li>
+          <li><a href="order.html"  class="hover:text-amber-400 transition-colors">Request Order</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-white text-xs font-bold uppercase tracking-wider mb-4">Contact</div>
+        <ul class="space-y-2 text-sm">
+          <!-- FIX #39: tel links in footer -->
+          <li><a href="tel:+17571234567" class="hover:text-amber-400 transition-colors">(757) 123-4567</a></li>
+          <li><a href="mailto:info@lynnhavenenginerepair.com" class="hover:text-amber-400 transition-colors">info@lynnhavenenginerepair.com</a></li>
+          <li class="text-stone-500">Mon–Fri 8am–5pm · Sat 8am–12pm</li>
         </ul>
       </div>
     </div>
-
-    <div class="footer-bottom">
-      <p>© 2024 Lynnhaven Small Engine Repair. All rights reserved.</p>
-      <p>Made with ❤️ in <a href="#contact">Lynnhaven, VA</a></p>
+    <div class="border-t border-stone-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs">
+      <!-- FIX #40: auto year -->
+      <p>© <span class="footer-year">2024</span> Lynnhaven Small Engine Repair. All rights reserved.</p>
+      <p>Made with ❤️ in Lynnhaven, VA</p>
     </div>
   </div>
 </footer>
+
+<!-- ── STICKY MOBILE CART (FIX #2, #34) ── -->
+<div id="mobile-cart-btn" class="hidden md:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 bg-green-800 text-white font-bold px-6 py-3.5 rounded-2xl shadow-2xl shadow-green-900/50" role="complementary" aria-label="Cart summary">
+  <span class="text-lg" aria-hidden="true">🛒</span>
+  <span id="mobile-cart-count" class="text-sm"></span>
+  <a href="cart.html" class="absolute inset-0 rounded-2xl" aria-label="Go to cart"></a>
+</div>
 
 <script src="script.js"></script>
 </body>

@@ -3,175 +3,218 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Request an Order | Lynnhaven Small Engine Repair</title>
-  <meta name="description" content="Submit a pickup order request for refurbished equipment at Lynnhaven Small Engine Repair. No online payment needed — we'll reach out to confirm.">
+  <title>Request a Pickup Order | Lynnhaven Small Engine Repair</title>
+  <meta name="description" content="Submit a pickup order request for refurbished equipment. No payment needed online — we'll confirm and arrange pickup.">
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:'DM Sans',sans-serif; }
+    /* FIX #1: order-total-wrap hidden class toggle works */
+    #order-total-wrap { display:flex; }
+    /* FIX #29: no resize on mobile */
+    textarea { resize:vertical; }
+    @media (max-width:640px) { textarea { resize:none; } }
+    input:focus, textarea:focus { outline:none; box-shadow:0 0 0 3px rgba(74,124,26,0.15); }
+    .field-error { display:none; }
+    ::-webkit-scrollbar{width:5px} ::-webkit-scrollbar-track{background:#f5f0e8} ::-webkit-scrollbar-thumb{background:#4a7c1a;border-radius:99px}
+  </style>
 </head>
-<body>
+<body class="bg-stone-50 text-stone-800 min-h-screen">
 
-<!-- ── Header ── -->
-<header class="site-header">
-  <div class="container">
-    <div class="header-inner">
-      <a href="index.html" class="brand" aria-label="Lynnhaven Small Engine Repair Home">
-        <div class="brand-icon" aria-hidden="true">⚙️</div>
-        <div class="brand-text">
-          <span class="brand-name">Lynnhaven Engine Repair</span>
-          <span class="brand-sub">Lynnhaven, Virginia</span>
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-stone-900 shadow-lg">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 bg-amber-400 rounded-xl flex items-center justify-center text-lg shadow-sm group-hover:bg-amber-300 transition-colors">⚙️</div>
+        <div class="leading-tight">
+          <div class="text-white font-bold text-sm" style="font-family:Lora,serif">Lynnhaven Engine Repair</div>
+          <div class="text-stone-400 text-xs">Lynnhaven, Virginia Beach</div>
         </div>
       </a>
-
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="order.html">Request Order</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="cart.html" class="cart-link" aria-label="View cart">
+      <nav class="hidden md:flex items-center gap-1" aria-label="Main navigation">
+        <a href="index.html"  class="nav-link text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded-lg hover:bg-white/10 transition-all">Home</a>
+        <a href="shop.html"   class="nav-link text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded-lg hover:bg-white/10 transition-all">Shop</a>
+        <a href="order.html"  class="nav-link text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded-lg hover:bg-white/10 transition-all">Order</a>
+        <a href="tel:+17571234567" class="nav-link text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded-lg hover:bg-white/10 transition-all">Contact</a>
+        <a href="cart.html" class="relative ml-2 flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-stone-900 text-sm font-bold px-4 py-2 rounded-xl transition-colors">
           🛒 Cart
-          <span class="cart-count" id="cart-count" aria-live="polite"></span>
+          <span class="cart-count hidden absolute -top-1.5 -right-1.5 min-w-[20px] h-5 bg-green-700 text-white text-xs font-black rounded-full flex items-center justify-center px-1 transition-transform"></span>
         </a>
       </nav>
-
-      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="flex md:hidden items-center gap-3">
+        <a href="cart.html" class="relative text-white text-xl p-1">🛒<span class="cart-count hidden absolute -top-0.5 -right-0.5 min-w-[16px] h-4 bg-amber-400 text-stone-900 text-xs font-black rounded-full flex items-center justify-center px-0.5"></span></a>
+        <button id="nav-burger" class="text-white p-1 rounded-lg hover:bg-white/10 transition-colors" aria-label="Toggle menu" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-stone-700/60 mt-1 pt-3 space-y-1">
+      <a href="index.html"  class="nav-link block text-stone-300 hover:text-white px-3 py-2.5 rounded-lg hover:bg-white/10 text-sm font-medium">Home</a>
+      <a href="shop.html"   class="nav-link block text-stone-300 hover:text-white px-3 py-2.5 rounded-lg hover:bg-white/10 text-sm font-medium">Shop Equipment</a>
+      <a href="order.html"  class="nav-link block text-stone-300 hover:text-white px-3 py-2.5 rounded-lg hover:bg-white/10 text-sm font-medium">Request Order</a>
+      <a href="tel:+17571234567" class="nav-link block text-stone-300 hover:text-white px-3 py-2.5 rounded-lg hover:bg-white/10 text-sm font-medium">📞 Call Us</a>
+      <a href="cart.html" class="block bg-amber-400 text-stone-900 font-bold text-center py-2.5 rounded-xl mt-2 text-sm">🛒 View Cart</a>
     </div>
   </div>
 </header>
 
-<!-- ── Page Hero ── -->
-<section class="page-hero" aria-label="Order request">
-  <div class="container">
-    <h1>Request a Pickup Order</h1>
-    <p>Fill out the form below and we'll contact you within 1 business day to confirm availability and arrange pickup.</p>
+<!-- Page header -->
+<div class="bg-gradient-to-r from-green-900 to-stone-800 py-10 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-amber-400 text-xs font-bold tracking-widest uppercase mb-2">Almost There</div>
+    <h1 class="text-white text-3xl font-bold" style="font-family:Lora,serif">Request a Pickup Order</h1>
+    <p class="text-stone-300 mt-2 text-sm max-w-lg">Fill out your info below. We'll reach out within 1 business day to confirm availability and arrange a pickup time.</p>
   </div>
-</section>
+</div>
 
-<!-- ── Order Form ── -->
-<main>
-  <div class="container">
-    <div class="order-grid">
+<main class="max-w-6xl mx-auto px-6 py-10 pb-20">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-      <!-- Form -->
-      <div class="order-form-wrap">
-        <h2>Your Information</h2>
+    <!-- Form -->
+    <div class="lg:col-span-2">
+      <div id="order-form-wrap" class="bg-white rounded-2xl shadow-sm border border-stone-200 p-6 md:p-8">
+        <h2 class="text-xl font-bold text-stone-800 mb-6" style="font-family:Lora,serif">Your Information</h2>
 
-        <!-- Hidden iframe prevents redirect to Google's confirmation page -->
-        <form id="order-form">
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Full Name <span aria-hidden="true" style="color:#cc3333">*</span></label>
-              <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name">
+        <form id="order-form" novalidate>
+          <!-- Name + Phone -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label for="name" class="block text-sm font-semibold text-stone-700 mb-1.5">
+                Full Name <span class="text-red-400" aria-label="required">*</span>
+              </label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name"
+                class="w-full px-4 py-3 border border-stone-200 rounded-xl text-stone-800 placeholder-stone-400 text-sm bg-stone-50 focus:bg-white focus:border-green-500 transition-all">
+              <!-- FIX #4: inline error messages -->
+              <p class="field-error text-red-500 text-xs mt-1">Please enter your full name.</p>
             </div>
-            <div class="form-group">
-              <label for="phone">Phone Number <span aria-hidden="true" style="color:#cc3333">*</span></label>
-              <input type="tel" id="phone" name="phone" placeholder="(757) 555-0100" required autocomplete="tel">
+            <div>
+              <label for="phone" class="block text-sm font-semibold text-stone-700 mb-1.5">
+                Phone Number <span class="text-red-400" aria-label="required">*</span>
+              </label>
+              <input type="tel" id="phone" name="phone" placeholder="(757) 555-0100" required autocomplete="tel"
+                class="w-full px-4 py-3 border border-stone-200 rounded-xl text-stone-800 placeholder-stone-400 text-sm bg-stone-50 focus:bg-white focus:border-green-500 transition-all">
+              <p class="field-error text-red-500 text-xs mt-1">Please enter your phone number.</p>
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="email">Email Address <span aria-hidden="true" style="color:#cc3333">*</span></label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          <!-- Email -->
+          <div class="mb-4">
+            <label for="email" class="block text-sm font-semibold text-stone-700 mb-1.5">
+              Email Address <span class="text-red-400" aria-label="required">*</span>
+            </label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email"
+              class="w-full px-4 py-3 border border-stone-200 rounded-xl text-stone-800 placeholder-stone-400 text-sm bg-stone-50 focus:bg-white focus:border-green-500 transition-all">
+            <p class="field-error text-red-500 text-xs mt-1">Please enter a valid email address.</p>
           </div>
 
-          <!-- Cart contents auto-filled by script.js -->
+          <!-- Hidden cart field -->
           <input type="hidden" id="cart-items-hidden" name="cart_items">
 
-          <div class="form-group">
-            <label for="notes">Additional Notes or Questions</label>
-            <textarea id="notes" name="notes" placeholder="Any questions about the equipment? Preferred pickup time? Let us know…"></textarea>
+          <!-- Notes -->
+          <div class="mb-6">
+            <label for="notes" class="block text-sm font-semibold text-stone-700 mb-1.5">Notes or Questions <span class="text-stone-400 font-normal">(optional)</span></label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Preferred pickup time? Questions about a specific item? Let us know…"
+              class="w-full px-4 py-3 border border-stone-200 rounded-xl text-stone-800 placeholder-stone-400 text-sm bg-stone-50 focus:bg-white focus:border-green-500 transition-all"></textarea>
           </div>
 
-          <div style="background:var(--green-pale);border-radius:var(--radius-sm);padding:14px 16px;font-size:.88rem;color:var(--warm-gray);margin-bottom:24px;border:1px solid rgba(74,138,42,.2)">
-            <strong style="color:var(--green-dark)">No payment required now.</strong> We'll confirm availability and pricing when we reach out. Payment is collected at pickup — cash, check, or card accepted.
+          <!-- No payment notice -->
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 flex gap-3">
+            <span class="text-xl flex-shrink-0" aria-hidden="true">💵</span>
+            <div>
+              <div class="font-bold text-stone-800 text-sm mb-0.5">No payment required now</div>
+              <div class="text-stone-500 text-xs leading-relaxed">We'll confirm availability and pricing when we call back. Payment collected at pickup — cash, check, or card.</div>
+            </div>
           </div>
 
-          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;font-size:1rem">
+          <button type="submit" class="w-full bg-green-800 hover:bg-green-700 active:scale-95 text-white font-bold py-4 px-6 rounded-2xl transition-all text-base shadow-lg">
             Send My Order Request →
           </button>
         </form>
       </div>
+    </div>
 
-      <!-- Sidebar -->
-      <aside class="order-sidebar" aria-label="Order details">
+    <!-- Sidebar -->
+    <aside class="space-y-4" aria-label="Order details">
 
-        <div class="order-items-box">
-          <h3>Items in Your Cart</h3>
-          <div id="order-items" aria-live="polite">
-            <p style="color:var(--warm-gray);font-size:.9rem">Loading…</p>
-          </div>
-          <div class="order-total-line" id="order-total-wrap" style="display:none">
-            <span>Estimated Total</span>
-            <span id="order-total" style="color:var(--green-mid)"></span>
-          </div>
-          <a href="cart.html" style="display:inline-block;margin-top:14px;font-size:.88rem;color:var(--green-mid);font-weight:600">← Edit Cart</a>
+      <!-- Cart items — FIX #1 total uses classList -->
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+        <h3 class="font-bold text-stone-800 mb-4 pb-3 border-b border-amber-200 text-base" style="font-family:Lora,serif">Items in Your Cart</h3>
+        <div id="order-items" aria-live="polite">
+          <p class="text-stone-400 text-sm">Loading…</p>
         </div>
+        <!-- FIX #1: hidden class toggled via JS classList, not style.display -->
+        <div id="order-total-wrap" class="hidden justify-between items-center pt-3 mt-3 border-t border-amber-300">
+          <span class="font-bold text-stone-800 text-sm">Estimated Total</span>
+          <!-- FIX #47: dollar sign in JS formatPrice() always -->
+          <span id="order-total" class="font-black text-green-800 text-lg" style="font-family:Lora,serif"></span>
+        </div>
+        <a href="cart.html" class="inline-flex items-center gap-1 text-green-700 text-sm font-semibold mt-4 hover:text-green-600 transition-colors">← Edit Cart</a>
+      </div>
 
-        <div class="info-box">
-          <h4>📍 Pickup Location</h4>
-          <p style="margin-bottom:10px">Lynnhaven, Virginia Beach, VA 23452</p>
-          <p><strong>Hours:</strong><br>
+      <!-- Pickup info -->
+      <div class="bg-white border border-stone-200 rounded-2xl p-5">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="text-lg" aria-hidden="true">📍</span>
+          <h4 class="font-bold text-stone-800 text-sm" style="font-family:Lora,serif">Pickup Location</h4>
+        </div>
+        <p class="text-stone-600 text-sm mb-3">Lynnhaven, Virginia Beach, VA 23452</p>
+        <div class="text-stone-500 text-xs leading-relaxed">
+          <div class="font-semibold text-stone-700 mb-1">Hours:</div>
           Mon–Fri: 8:00 AM – 5:00 PM<br>
           Saturday: 8:00 AM – 12:00 PM<br>
-          Sunday: Closed</p>
+          Sunday: Closed
         </div>
+        <!-- FIX #39: tel link -->
+        <a href="tel:+17571234567" class="mt-3 inline-flex items-center gap-1.5 text-green-700 text-sm font-semibold hover:text-green-600 transition-colors">📞 (757) 123-4567</a>
+      </div>
 
-        <div class="info-box">
-          <h4>❓ How It Works</h4>
-          <ul>
-            <li>Submit this form with your info and items</li>
-            <li>We'll call or email within 1 business day</li>
-            <li>Confirm the items are still available</li>
-            <li>Schedule your pickup time</li>
-            <li>Pay at the shop — cash, check, or card</li>
-          </ul>
+      <!-- How it works -->
+      <div class="bg-white border border-stone-200 rounded-2xl p-5">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-lg" aria-hidden="true">❓</span>
+          <h4 class="font-bold text-stone-800 text-sm" style="font-family:Lora,serif">How It Works</h4>
         </div>
+        <ol class="space-y-3" role="list">
+          <li class="flex gap-3 text-sm">
+            <span class="w-5 h-5 bg-green-800 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5" aria-hidden="true">1</span>
+            <span class="text-stone-600">Submit this form with your info</span>
+          </li>
+          <li class="flex gap-3 text-sm">
+            <span class="w-5 h-5 bg-green-800 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5" aria-hidden="true">2</span>
+            <span class="text-stone-600">We call or email within 1 business day</span>
+          </li>
+          <li class="flex gap-3 text-sm">
+            <span class="w-5 h-5 bg-green-800 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5" aria-hidden="true">3</span>
+            <span class="text-stone-600">Confirm items &amp; schedule your pickup</span>
+          </li>
+          <li class="flex gap-3 text-sm">
+            <span class="w-5 h-5 bg-amber-400 text-stone-900 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5" aria-hidden="true">4</span>
+            <span class="text-stone-600">Pay at the shop — cash, check, or card</span>
+          </li>
+        </ol>
+      </div>
 
-      </aside>
-    </div>
+    </aside>
   </div>
 </main>
 
-<!-- ── Footer ── -->
-<footer class="site-footer" aria-label="Site footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="brand" style="margin-bottom:14px">
-          <div class="brand-icon" aria-hidden="true">⚙️</div>
-          <div class="brand-text">
-            <span class="brand-name">Lynnhaven Engine Repair</span>
-            <span class="brand-sub">Lynnhaven, Virginia</span>
-          </div>
-        </div>
-        <p>Your trusted neighborhood small engine repair shop. Serving Lynnhaven and all of Virginia Beach since 2004.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop Equipment</a></li>
-          <li><a href="cart.html">Cart</a></li>
-          <li><a href="order.html">Request Order</a></li>
-          <li><a href="index.html#contact">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:+17571234567">(757) 123-4567</a></li>
-          <li><a href="mailto:info@lynnhavenenginerepair.com">Email Us</a></li>
-          <li><span style="color:rgba(255,255,255,.5)">Mon–Fri 8am–5pm</span></li>
-          <li><span style="color:rgba(255,255,255,.5)">Sat 8am–12pm</span></li>
-        </ul>
-      </div>
+<!-- Footer -->
+<footer class="bg-stone-900 text-stone-400 py-10 border-t border-stone-800">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+    <div class="flex items-center gap-3">
+      <div class="w-7 h-7 bg-amber-400 rounded-lg flex items-center justify-center" aria-hidden="true">⚙️</div>
+      <span class="text-white font-bold" style="font-family:Lora,serif">Lynnhaven Engine Repair</span>
     </div>
-    <div class="footer-bottom">
-      <p>© 2024 Lynnhaven Small Engine Repair. All rights reserved.</p>
-      <p>Made with ❤️ in <a href="index.html#contact">Lynnhaven, VA</a></p>
+    <div class="flex gap-6 flex-wrap justify-center">
+      <a href="index.html" class="hover:text-amber-400 transition-colors">Home</a>
+      <a href="shop.html"  class="hover:text-amber-400 transition-colors">Shop</a>
+      <a href="cart.html"  class="hover:text-amber-400 transition-colors">Cart</a>
+      <a href="tel:+17571234567" class="hover:text-amber-400 transition-colors">Contact</a>
     </div>
+    <p class="text-xs">© <span class="footer-year">2024</span> Lynnhaven Small Engine Repair</p>
   </div>
 </footer>
 
