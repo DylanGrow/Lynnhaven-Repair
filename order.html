@@ -176,14 +176,5 @@
 </footer>
 
 <script src="script.js"></script>
-<script>
-  // Show total line when cart has items
-  document.addEventListener('DOMContentLoaded', () => {
-    const cart = JSON.parse(localStorage.getItem('lynnhaven_cart') || '[]');
-    if (cart.length > 0) {
-      document.getElementById('order-total-wrap').style.display = 'flex';
-    }
-  });
-</script>
 </body>
 </html>
